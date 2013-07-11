@@ -29,6 +29,11 @@ public class TestString {
         System.out.println(test.nTwice("Chocolate", 3));
         System.out.println(test.twoChar("java", 0));
         System.out.println(test.middleThree("solving"));
+        System.out.println(test.hasBad("badxx"));
+        System.out.println(test.atFirst(""));
+        System.out.println(test.lastChars("", ""));
+        System.out.println(test.conCat("c", "cat"));
+        System.out.println(test.lastTwo("coding"));
 
     }
 

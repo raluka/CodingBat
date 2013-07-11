@@ -284,6 +284,91 @@ middleThree("solving") → "lvi"
         return str.substring(i,j);
     }
 
+    /*
+ Given a string, return true if "bad" appears starting at index 0 or 1 in the string, such as with "badxxx" or "xbadxx"
+  but not "xxbadxx". The string may be any length, including 0. Note: use .equals() to compare 2 strings.
+
+hasBad("badxx") → true
+hasBad("xbadxx") → true
+hasBad("xxbadxx") → false
+     */
+
+    public boolean hasBad(String str) {
+        return ((str.length()>=3 && str.substring(0,3).equals("bad"))||(str.length()>=4 && str.substring(1,4).equals("bad")));
+    }
+
+    /*
+    Given a string, return a string length 2 made of its first 2 chars. If the string length is less than 2, use '@'
+    for the missing chars.
+
+atFirst("hello") → "he"
+atFirst("hi") → "hi"
+atFirst("h") → "h@"
+     */
+
+    public String atFirst(String str) {
+        String atFirst = "@@";
+        if (str.length()>=1) atFirst = str.substring(0, 1) + "@";
+        if (str.length()>=2) atFirst = str.substring(0, 2);
+        return atFirst;
+    }
+
+    /*
+    Given 2 strings, a and b, return a new string made of the first char of a and the last char of b, so "yo" and
+    "java" yields "ya". If either string is length 0, use '@' for its missing char.
+
+lastChars("last", "chars") → "ls"
+lastChars("yo", "java") → "ya"
+lastChars("hi", "") → "h@"
+     */
+
+    public String lastChars(String a, String b) {
+        char x = '@';
+        char y = '@';
+        if (a.length() > 0){
+            x = a.charAt(0);
+        }
+        if (b.length() > 0){
+            y = b.charAt(b.length()-1);
+        }
+        return "" + x + y;
+    }
+
+    /*
+    Given two strings, append them together (known as "concatenation") and return the result. However, if the
+    concatenation creates a double-char, then omit one of the chars, so "abc" and "cat" yields "abcat".
+
+conCat("abc", "cat") → "abcat"
+conCat("dog", "cat") → "dogcat"
+conCat("abc", "") → "abc"
+     */
+
+    public String conCat(String a, String b) {
+        String conCat = a + b;
+        if (a.length()>0 && b.length() > 0 && a.charAt(a.length()-1) == b.charAt(0)){
+            conCat = a.substring(0,a.length()-1) + b ;
+        }
+        return conCat;
+    }
+
+    /*
+    Given a string of any length, return a new string where the last 2 chars, if present, are swapped, so "coding"
+    yields "codign".
+
+lastTwo("coding") → "codign"
+lastTwo("cat") → "cta"
+lastTwo("ab") → "ba"
+     */
+
+    public String lastTwo(String str) {
+        String lastTwo = str;
+        if (str.length() >=2){
+            lastTwo = str.substring(0, (str.length()-2)) + str.substring((str.length()-1)) + str.substring((str.length()-2),(str.length()-1));
+        }
+        return lastTwo;
+    }
+
+
 
 
 
