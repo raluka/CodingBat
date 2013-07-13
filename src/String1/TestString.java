@@ -34,6 +34,16 @@ public class TestString {
         System.out.println(test.lastChars("", ""));
         System.out.println(test.conCat("c", "cat"));
         System.out.println(test.lastTwo("coding"));
+        System.out.println(test.seeColor("blue Times"));
+        System.out.println(test.frontAgain("ed"));
+        System.out.println(test.minCat("java", "Hello"));
+        System.out.println(test.extraFront("Hello"));
+        System.out.println(test.without2("Hiho"));
+        System.out.println(test.deFront("away"));
+        System.out.println(test.startWord("hippo", "hi"));
+        System.out.println(test.withoutX("xhix"));
+        System.out.println(test.withoutX2("xhixx"));
+        System.out.println(test.withoutX3("x"));
 
     }
 
