@@ -355,13 +355,62 @@ starOut("sm*eilly") → "silly"
         return result;
     }
 
+    /*
+    Given a string and a non-empty word string, return a version of the original String where all chars have been
+    replaced by pluses ("+"), except for appearances of the word string which are preserved unchanged.
 
+plusOut("12xy34", "xy") → "++xy++"
+plusOut("12xy34", "1") → "1+++++"
+plusOut("12xy34xyabcxy", "xy") → "++xy++xy+++xy"
+     */
 
+    public String plusOut(String str, String word) {
+        String temp = "";
+        String result = "";
+        while (str.contains(word)){
+            for (int i = 0; i < str.indexOf(word); i++) {
+                temp += "+";
+            }
+            result += temp + word;
+            temp = "";
+            str = str.substring(str.indexOf(word)+word.length());
+            plusOut(str, word);
 
+        }
+        if (str.length()> 0){
+            for (int i = 0; i < str.length(); i++) {
+                temp += "+";
+            }
+            result += temp;
+        }
+        return result;
+    }
 
+    /*
+    Given a string and a non-empty word string, return a string made of each char just before and just after every
+    appearance of the word in the string. Ignore cases where there is no char before or after the word, and a char may
+    be included twice if it is between two words.
 
+wordEnds("abcXY123XYijk", "XY") → "c13i"
+wordEnds("XY123XY", "XY") → "13"
+wordEnds("XY1XY", "XY") → "11"
+     */
 
-
+    public String wordEnds(String str, String word) {
+        String result = "";
+        if (str.length() > 0) {
+            while (str.contains(word)) {
+                if (str.indexOf(word) > 0) result += str.charAt(str.indexOf(word) - 1);
+                if (str.indexOf(word) < str.length() - word.length() && str.substring(str.indexOf(word) + 1).startsWith(word))
+                    result = result + str.charAt(str.indexOf(word) + word.length());
+                if (str.indexOf(word) < str.length() - word.length())
+                    result += str.charAt(str.indexOf(word) + word.length());
+                str = str.substring(str.indexOf(word) + 1);
+                wordEnds(str, word);
+            }
+        }
+        return result;
+    }
 
 
 
